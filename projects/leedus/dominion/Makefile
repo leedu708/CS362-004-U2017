@@ -54,7 +54,7 @@ unittestresults.out: card1 card2 card3 card4 unit1 unit2 unit3 unit4 dominion.o
 	./cardtest2 				 >> unittestresults.out 2>&1
 	./cardtest3 				 >> unittestresults.out 2>&1
 	./cardtest4 				 >> unittestresults.out 2>&1
-	gcov dominion.c 		 >> unittestresults.out 2>&1
+	gcov -b -c dominion.c 		 >> unittestresults.out 2>&1
 	cat dominion.c.gcov 	>> unittestresults.out 2>&1
 
 interface.o: interface.h interface.c
