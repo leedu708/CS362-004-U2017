@@ -35,11 +35,11 @@ int testAdventurer() {
 
   while (found == 0 && j < 5) {
     for (i = 0; i < numHandCards(&G); i++) {
-      if (handCard(pos, &G) == smithy) {
+      if (handCard(i, &G) == adventurer) {
         found = 1;
       }
 
-      j++
+      j++;
     }
 
     endTurn(&G);

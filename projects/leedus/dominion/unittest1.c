@@ -29,3 +29,7 @@ int testSupplyCount() {
 
   return status;
 }
+
+int main() {
+  return testSupplyCount();
+}

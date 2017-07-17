@@ -35,8 +35,8 @@ int testOutpost() {
 
   while(found == 0 && j < 5) {
     for (i = 0; i < numHandCards(&G); i++) {
-      if (handCard(pos, &G) == outpost) {
-        cardFound = 1;
+      if (handCard(i, &G) == outpost) {
+        found = 1;
       }
 
       j++;

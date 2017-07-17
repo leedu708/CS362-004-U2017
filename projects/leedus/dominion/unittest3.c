@@ -18,13 +18,13 @@ int testShuffle() {
   struct gameState G;
 
   // set up the deck for testing
-  G.deckCount[p] = 3;
-  G.deck[p][0] = copper;
-  G.deck[p][1] = gold;
-  G.dekc[p][2] = silver;
+  G.deckCount[playVar] = 3;
+  G.deck[playVar][0] = copper;
+  G.deck[playVar][1] = gold;
+  G.deck[playVar][2] = silver;
 
   // shuffle cards
-  status = shuffle(p, &G);
+  status = shuffle(playVar, &G);
   if (status < 0) {
     return status;
   }
@@ -34,7 +34,7 @@ int testShuffle() {
 
   int i;
   for (i = 0; i < 3; i++) {
-    deck[G.deck[p][i]] = 1;
+    deck[G.deck[playVar][i]] = 1;
   }
 
   assert(deck[copper] && deck[gold] && deck[silver]);

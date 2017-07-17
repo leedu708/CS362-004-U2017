@@ -35,8 +35,8 @@ int testEmbargo() {
 
   while(found == 0 && j < 5) {
     for (i = 0; i < numHandCards(&G); i++) {
-      if (handCard(pos, &G) == embargo) {
-        cardFound = 1;
+      if (handCard(i, &G) == embargo) {
+        found = 1;
       }
 
       j++;

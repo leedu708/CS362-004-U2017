@@ -35,8 +35,8 @@ int testSmithy() {
 
   while(found == 0 && j < 5) {
     for (i = 0; i < numHandCards(&G); i++) {
-      if (handCard(pos, &G) == smithy) {
-        cardFound = 1;
+      if (handCard(i, &G) == smithy) {
+        found = 1;
       }
 
       j++;
