@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int testSmithy() {
+int testEmbargo() {
   // tests that fullDeckCount is properly implemented
   // initialize status of test to -1
   // if status = 0 by end of test, then test passes
@@ -29,13 +29,13 @@ int testSmithy() {
   int choices[3] = {0};
   int i;
   int j = 0;
-  buyCard(smithy, &G);
-  buyCard(smithy, &G);
+  buyCard(embargo, &G);
+  buyCard(embargo, &G);
   int found = 0;
 
   while(found == 0 && j < 5) {
     for (i = 0; i < numHandCards(&G); i++) {
-      if (handCard(pos, &G) == smithy) {
+      if (handCard(pos, &G) == embargo) {
         cardFound = 1;
       }
 
@@ -45,16 +45,16 @@ int testSmithy() {
     endTurn(&G);
   }
 
-  status = cardEffect(smithy, choices[0], choices[1], choices[2], &G, i, NULL);
+  status = cardEffect(embargo, choices[0], choices[1], choices[2], &G, i, NULL);
 
   assert(status == 0);
 
-  printf("Test Smithy Successful!\n");
+  printf("Test Embargo Successful!\n");
 
   status = 0;
   return status;
 }
 
 int main() {
-  return testSmithy();
+  return testEmbargo();
 }

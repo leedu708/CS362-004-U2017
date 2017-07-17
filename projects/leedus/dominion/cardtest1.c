@@ -6,6 +6,7 @@
 #include <stdlib.h>
 
 int testAdventurer() {
+  // tests that fullDeckCount is properly implemented
   // initialize status of test to -1
   // if status = 0 by end of test, then test passes
 
@@ -27,8 +28,8 @@ int testAdventurer() {
 
   int choices[3] = {0};
   int i;    // position
-  buyCard(smithy, &G);
-  buyCard(smithy, &G);
+  buyCard(adventurer, &G);
+  buyCard(adventurer, &G);
   int j = 0; // while loop
   int found = 0;
 
