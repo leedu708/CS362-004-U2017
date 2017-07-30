@@ -57,6 +57,30 @@ unittestresults.out: card1 card2 card3 card4 unit1 unit2 unit3 unit4 dominion.o
 	gcov dominion.c 		 >> unittestresults.out 2>&1
 	cat dominion.c.gcov 	>> unittestresults.out 2>&1
 
+randomtestadventurer: dominion.o randomtestadventurer.c
+	gcc -fprofile-arcs -ftest-coverage -Wall -std=c99 dominion.o randomtestadventurer.c rngs.c -o randomtestadventurer -lm -g
+
+randomtestadventurer.out: randomtestadventurer dominion.o
+	./randomtestadventurer	>> randomtestadventurer.out 2>&1
+	gcov -f dominion.c			>> randomtestadventurer.out 2>&1
+	cat dominion.c.gcov			>> randomtestadventurer.out 2>&1
+
+randomtestcard1: dominion.o randomtestcard1.c
+	gcc -fprofile-arcs -ftest-coverage -Wall -std=c99 dominion.o randomtestcard1.c rngs.c -o randomtestcard1 -lm -g
+
+randomtestcard1.out: randomtestcard1 dominion.o
+	./randomtestcard1				>> randomtestcard1.out 2>&1
+	gcov -f dominion.c			>> randomtestcard1.out 2>&1
+	cat dominion.c.gcov			>> randomtestcard1.out 2>&1
+
+randomtestcard2: dominion.o randomtestcard2.c
+	gcc -fprofile-arcs -ftest-coverage -Wall -std=c99 dominion.o randomtestcard2.c rngs.c -o randomtestcard2 -lm -g
+
+randomtestcard2.out: randomtestcard2 dominion.o
+	./randomtestcard2				>> randomtestcard2.out 2>&1
+	gcov -f dominion.c			>> randomtestcard2.out 2>&1
+	cat dominion.c.gcov			>> randomtestcard2.out 2>&1
+
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
@@ -72,4 +96,4 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom test.exe test player unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so badTestDrawCard testDrawCard unittestresults.out
+	rm -f *.o playdom.exe playdom test.exe test player unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 randomtestadventurer randomtestadventurer.out randomtestcard1 randomtestcard1.out randomtestcard2 randomtestcard2.out player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so badTestDrawCard testDrawCard unittestresults.out

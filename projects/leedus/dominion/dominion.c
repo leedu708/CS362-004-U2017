@@ -1289,7 +1289,7 @@ int newAdventurer(struct gameState *state) {
   int z = 0;
 
   // should draw two treasures, instead it draws until 3 treasures have been drawn
-  while (drawntreasure < 2) {
+  while (drawntreasure < 3) {
     if (state->deckCount[currentPlayer] < 1) {
       shuffle(currentPlayer, state);
     }
@@ -1318,7 +1318,7 @@ int newSmithy(struct gameState *state, int handPos) {
   int i;
 
   // should draw 3 cards, but I have set it to draw 5
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < 5; i++) {
     drawCard(currentPlayer, state);
   }
 
@@ -1332,7 +1332,7 @@ int newGreatHall(struct gameState *state, int handPos) {
   drawCard(currentPlayer, state);
 
   // number of actions should only increment to 1, currently increments 5 times
-  state->numActions = state->numActions + 1;
+  state->numActions = state->numActions + 5;
   discardCard(handPos, currentPlayer, state, 0);
   return 0;
 }
@@ -1341,7 +1341,7 @@ int newEmbargo(struct gameState *state, int handPos, int choice1) {
   int currentPlayer = whoseTurn(state);
 
   // should only add two coins, this bug instead subracts 1 coin
-  state->coins = state->coins + 2;
+  state->coins = state->coins - 1;
   if (state->supplyCount[choice1] == -1) {
     return -1;
   }
