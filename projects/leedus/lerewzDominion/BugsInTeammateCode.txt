@@ -1,0 +1,6 @@
+function cardAdventurer() in dominion.c lines 1100-1126:
+1. At line 1120, the function should discard all cards drawn that aren't treasures by the Adventurer card. However, the function discards all but 1 card. More specifically, the first card drawn that wasn't a treasure is not discarded.
+
+function cardSmithy() in dominion.c lines 1128-1139:
+1. At line 1133, Smithy should draw 3 cards. However, cardSmithy instead discards 3 cards.
+2. At line 1137, Smithy should discard a cards. However, cardSmithy instead draws 1 card.
