@@ -41,8 +41,28 @@ public class UrlValidatorTest extends TestCase {
    public void testManualTest()
    {
 	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
-	   System.out.println(urlVal.isValid("http://www.amazon.com"));
+	   int size = 15;
+	   String[] urls = new String[size];
 	   
+	   urls[0] = "http://www.amazon.com";
+	   urls[1] = "http://////www.google.com";
+	   urls[2] = "http://www.testsite.org/?username=dustin";
+	   urls[3] = "http://www.google.com/api/user";
+	   urls[4] = "google.com";
+	   urls[5] = "http://www.google.uk/";
+	   urls[6] = "http://www.google.com:8080";
+	   urls[7] = "http://www.google.com:65536";
+	   urls[8] = "https://www.google.com:65535";
+	   urls[9] = "http//:amazon.com";
+	   urls[10] = "http://www.google.org:0";
+	   urls[11] = "http://www.google.com:32";
+	   urls[12] = "xtp//www.google.com";
+	   urls[13] = "https://www.google.com:3332/?test=testing";
+	   urls[14] = "http://www.google.com:89/nom/test/dustin/abc/";
+	   
+	   for (int i = 0; i < size; i++) {
+		   System.out.println(urls[i] + " - " + urlVal.isValid(urls[i]));
+	   }
 	   
    }
    
@@ -75,6 +95,11 @@ public class UrlValidatorTest extends TestCase {
     *
     * @param testObjects Used to create a url.
     */
+   
+   public static void main(String [ ] args) {
+	   UrlValidatorTest test = new UrlValidatorTest("test");
+	   test.testManualTest();
+   }
    
 
 }
